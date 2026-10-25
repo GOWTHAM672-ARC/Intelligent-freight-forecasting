@@ -1,0 +1,10 @@
+{
+  "description": "Optimizes vessel chartering and bulk cargo procurement by forecasting freight demand for efficient shipping to India's East Coast.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

@@ -1,0 +1,16 @@
+# Docker ignore file
+**/.git
+**/.gitignore
+**/.vscode
+**/node_modules
+**/venv
+**/__pycache__
+**/*.pyc
+**/*.pyo
+**/*.pyd
+**/dist
+**/.cache
+**/.vite
+**/*.log
+**/.DS_Store
+**/Thumbs.db

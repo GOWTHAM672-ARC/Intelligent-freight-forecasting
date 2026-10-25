@@ -1,0 +1,28 @@
+services:
+  # Option A: Unified Fullstack Web Service (Single container running both frontend and backend)
+  - type: web
+    name: freight-forecasting-fullstack
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: CORS_ORIGINS
+        value: "*"
+    healthCheckPath: /health
+
+  # Option B: Decoupled Backend Service (If hosting frontend separately on Vercel/Netlify)
+  - type: web
+    name: freight-forecasting-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    plan: free
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: CORS_ORIGINS
+        value: "*"
+    healthCheckPath: /health
