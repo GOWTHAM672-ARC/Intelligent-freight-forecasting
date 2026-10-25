@@ -164,7 +164,7 @@ VESSELS: List[dict] = [
 ]
 
 ALERTS: List[dict] = [
-    {"type": "warning", "msg": "W3 Oct BDI hits 2,760 (+4.8% WoW) — Capesize freight rates surging into Q4 peak", "time": "Just now"},
+    {"type": "warning", "msg": "W4 Oct BDI hits 2,760 (+4.8% WoW) — Capesize freight rates surging into Q4 peak", "time": "Just now"},
     {"type": "success", "msg": "MV Eastern Star confirmed on-schedule arrival at Vizag anchorage — ETA 22 Oct", "time": "20 min ago"},
     {"type": "danger", "msg": "Post-monsoon wave surge off Bay of Bengal — Chennai & Paradip port turnaround extended 24h", "time": "1 hr ago"},
     {"type": "info", "msg": "Q4 coal import target revised upward to 5.2 MT — early chartering recommended before Nov rate hike", "time": "2 hr ago"},

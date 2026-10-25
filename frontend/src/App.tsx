@@ -156,7 +156,7 @@ const defaultVessels: Vessel[] = [
 const defaultAlerts: MaritimeAlert[] = [
   {
     type: "warning",
-    msg: "W3 Oct BDI hits 2,760 (+4.8% WoW) — Capesize freight rates surging into Q4 peak",
+    msg: "W4 Oct BDI hits 2,760 (+4.8% WoW) — Capesize freight rates surging into Q4 peak",
     time: "Just now",
   },
   {
@@ -329,7 +329,7 @@ function OverviewTab({
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#10b981] animate-ping" />
             <span className="font-mono text-xs font-semibold text-[#10b981]">
-              LIVE TICK ({liveTick.current_week || "W3 Oct"})
+              LIVE TICK ({liveTick.current_week || currentWeekLabel})
             </span>
             <span className="font-mono text-xs text-[#94a3b8]">
               {liveTick.server_time}
@@ -702,7 +702,7 @@ function ForecastTab({
           {
             label: "Live BDI Benchmark",
             value: liveTick ? `${liveTick.bdi}` : "2,760",
-            note: liveTick ? `Trend: ${liveTick.trend} (W3 Oct)` : "Surging 4-wk streak",
+            note: liveTick ? `Trend: ${liveTick.trend} (${currentWeek})` : "Surging 4-wk streak",
           },
           {
             label: "Bunker (VLSFO)",
@@ -1340,6 +1340,7 @@ function PortsTab() {
 }
 
 function ProcurementTab() {
+  const dateInfo = getClientDateInfo()
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
@@ -1378,7 +1379,7 @@ function ProcurementTab() {
           AI Procurement Recommendations
         </h3>
         <p className="text-xs text-[#64748b] font-mono mb-5">
-          Model confidence threshold: 82% · Real-time recommendation (Oct 19, 2026 - W3 Oct)
+          Model confidence threshold: 82% · Real-time recommendation ({dateInfo.fullStr})
         </p>
         <div className="space-y-3">
           {[
@@ -1387,7 +1388,7 @@ function ProcurementTab() {
               title:
                 "Charter Capesize (180K DWT) immediately for Q4 Coal from Newcastle",
               detail:
-                "Freight rates forecast to surge past $30,000/day by mid-November. Fixing today (W3 Oct) at $27,600/day vs projected $30,500/day saves approx. $2.6M over 30-day voyage.",
+                `Freight rates forecast to surge past $30,000/day by mid-November. Fixing today (${dateInfo.weekStr}) at $28,400/day vs projected $30,500/day saves approx. $2.6M over 30-day voyage.`,
               action: "Fix Charter",
               color: "border-l-[#f59e0b] bg-[#f59e0b]/5",
             },
@@ -1547,7 +1548,7 @@ export default function App() {
       "success",
     ]
     const sampleMsgs = [
-      "W3 Oct surge: East Coast Capesize spot fixtures hitting $28,000/day",
+      `${dateInfo.weekStr} surge: East Coast Capesize spot fixtures hitting $28,400/day`,
       "Visakhapatnam port berthing priority granted to MV Eastern Star — ETA confirmed 22 Oct",
       "Singapore Bunker VLSFO holding at $642/MT — optimal forward bunkering window open",
     ]
